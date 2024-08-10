@@ -52,7 +52,7 @@ This will open a new tab in your default web browser with the Expo DevTools. You
 - **`/assets`**: Contains images and other static assets.
 - **`/src`**: Source directory for components and styles.
   - **`/api`**: Contains API utility functions.
-  - **`/components`**: Reusable components like `ProductCard` and `Loader`.
+  - **`/components`**: Reusable components like `ActionButton`,`ProductCard` and `Loader`.
   - **`/styles`**: Style definitions.
 
 ### API Integration
@@ -82,7 +82,3 @@ Contributions are welcome! Please open an issue or submit a pull request to cont
 ### License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize this `README.md` based on your project's specifics and preferences. If you have additional features or sections to include, you can easily modify this template.
