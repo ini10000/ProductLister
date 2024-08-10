@@ -1,37 +1,36 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+import styles from "@/src/styles/styles";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Stack, useRouter } from "expo-router";
+import { Pressable, Text, Touchable } from "react-native";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+  const router = useRouter();
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
+  const handleLogout = async () => {
+    await AsyncStorage.multiRemove(["@user_data", "@favorites"]);
+    router.push("/");
+  };
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <Stack screenOptions={{ headerShown: false }} initialRouteName="index">
+      <Stack.Screen name="index" />
+      <Stack.Screen name="register" />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          headerTitle: "Products",
+          headerRight: () => (
+            <Pressable onPress={handleLogout}>
+              <Text style={styles.redText}>LOGOUT</Text>
+            </Pressable>
+          ),
+        }}
+        name="products"
+      />
+      <Stack.Screen
+        options={{ headerShown: true, headerTitle: "Product Details" }}
+        name="product-details"
+      />
+    </Stack>
   );
 }

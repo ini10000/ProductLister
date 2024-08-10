@@ -1,50 +1,88 @@
-# Welcome to your Expo app 👋
+# Product Listing App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native application built with Expo and `expo-router` for managing a product listing. The app allows users to view products, view product details, and manage authentication.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Authentication**: Users can register, log in, and log out.
+- **Product Listing**: Displays a list of products fetched from a Dummy JSON API.
+- **Product Details**: View detailed information about a selected product.
+- **Favorites**: Add products to favorites and view them.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (preferably the latest LTS version)
+- Expo CLI: Install it globally with `npm install -g expo-cli`
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/ini10000/product-listing-app.git
+   cd product-listing-app
+   ```
+
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+### Running the App
 
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+To start the development server, run:
 
 ```bash
-npm run reset-project
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+This will open a new tab in your default web browser with the Expo DevTools. You can scan the QR code with the Expo Go app on your mobile device or use an emulator.
 
-## Learn more
+### Directory Structure
 
-To learn more about developing your project with Expo, look at the following resources:
+- **`/app`**: Contains all screens and routing files.
+  - **`index.tsx`**: Main entry point.
+  - **`login.tsx`**: Login screen.
+  - **`register.tsx`**: Registration screen.
+  - **`products.tsx`**: Product listing screen.
+  - **`product-details.tsx`**: Product details screen.
+- **`/assets`**: Contains images and other static assets.
+- **`/src`**: Source directory for components and styles.
+  - **`/api`**: Contains API utility functions.
+  - **`/components`**: Reusable components like `ProductCard` and `Loader`.
+  - **`/styles`**: Style definitions.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### API Integration
 
-## Join the community
+The app uses the Dummy JSON API for fetching product data. The endpoint is:
 
-Join our community of developers creating universal apps.
+```
+https://dummyjson.com/products
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Authentication
+
+User authentication data is stored locally using `AsyncStorage`.
+
+### Types
+
+TypeScript is used for type safety. The application uses types for props and state management to ensure code reliability.
+
+### Troubleshooting
+
+If you encounter issues running the app, ensure you have the correct versions of Node.js and Expo CLI. Refer to the [Expo documentation](https://docs.expo.dev) for additional help.
+
+### Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request to contribute to this project.
+
+### License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Feel free to customize this `README.md` based on your project's specifics and preferences. If you have additional features or sections to include, you can easily modify this template.
