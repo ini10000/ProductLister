@@ -21,7 +21,7 @@ A React Native application built with Expo and `expo-router` for managing a prod
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/ini10000/product-listing-app.git
+   git clone https://github.com/ini10000/ProductLister.git
    cd product-listing-app
    ```
 
